@@ -1,0 +1,54 @@
+{
+ "version": 1,
+ "model_sha256": "fcc3a257d125459730a5159177dafdeeb6598f9ab23dcb44294cb0d69a6cbbcb",
+ "prompt_version": 2,
+ "features": [
+  "logit_p"
+ ],
+ "weights": [
+  1.0
+ ],
+ "isotonic": {
+  "x": [
+   0.0,
+   1.0
+  ],
+  "y": [
+   0.0,
+   1.0
+  ]
+ },
+ "bars": {
+  "0.9": {
+   "described": 0.505077,
+   "undescribed": 0.524812,
+   "placeholder": 0.738748
+  },
+  "0.95": {
+   "described": 0.808591,
+   "undescribed": 0.901218,
+   "placeholder": 0.910911
+  },
+  "0.99": {
+   "described": null,
+   "undescribed": null,
+   "placeholder": null
+  }
+ },
+ "measured": {
+  "fitted": "2026-10-22",
+  "model": "identity",
+  "dev_cases": 1200,
+  "dev_picks": 788,
+  "dev_domains": 76,
+  "oof_auc_raw": 0.934,
+  "oof_auc": 0.934,
+  "oof_ece_raw": 0.0334,
+  "oof_ece": 0.0334,
+  "test_cases": 1000,
+  "test_auc_raw": 0.9565,
+  "test_auc": 0.9565,
+  "test_ece_raw": 0.0272,
+  "test_ece": 0.0272
+ }
+}

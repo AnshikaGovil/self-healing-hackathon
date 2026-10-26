@@ -1,0 +1,8 @@
+run-memory/
+*/memory/
+.venv/
+*/.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+deploy/accounts.env

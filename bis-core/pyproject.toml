@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bis-core"
+version = "1.1.0"
+description = "Shared core of the Bot Immune System: element descriptors, the deterministic ranking signals, the confidence-band policy and the adjudication wire contract."
+requires-python = ">=3.9"
+
+# Empty, and enforced by a test. The core is pure standard library, so a bot
+# can rank candidates on a machine with nothing else installed on it. The
+# encoder and the GGUF runtime live in healing-service and plug in through
+# bis_core.runtime; nothing here imports them.
+dependencies = []
+
+[tool.setuptools.packages.find]
+include = ["bis_core*"]

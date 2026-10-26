@@ -1,0 +1,13 @@
+# The front door's dependencies: the healing service without a GPU. The AI
+# is asked over HTTPS (BIS_AI_URL), so there is no GGUF runtime here; torch
+# comes from the CPU index (modal_front.py). Pinned to the versions the
+# test suites ran on.
+fastapi==0.141.1
+uvicorn[standard]==0.52.4
+pydantic==2.13.5
+starlette==1.6.0
+anyio==4.15.0
+numpy==2.3.2
+sentence-transformers==6.0.1
+transformers==5.16.1
+huggingface_hub==1.30.0

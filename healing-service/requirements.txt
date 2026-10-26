@@ -1,0 +1,40 @@
+# The shared core. The accelerator dependencies are listed below rather
+# than in the core, because this is the only host that loads a model.
+-e ../bis-core
+sentence-transformers>=2.7.0   # Apache-2.0  semantic signal
+torch>=2.2.0                   # BSD-3       encoder backend
+numpy>=1.26.0                  # BSD-3
+llama-cpp-python>=0.3.0        # MIT         GGUF runtime
+
+# Bot Immune System - dependencies for the HEALING SERVICE (the GPU host)
+#
+# Install these on the one accelerated machine that serves the fleet:
+#     pip install -r requirements-service.txt
+#     python scripts/provision_model.py
+#     python -m bot_immune_system.service --host 0.0.0.0 --port 8077
+
+fastapi>=0.110.0               # MIT         - HTTP API
+uvicorn[standard]>=0.29.0      # BSD-3       - ASGI server
+pydantic>=2.6.0                # MIT         - request/response validation
+
+
+# GGUF inference. The plain wheel is CPU-only; on a GPU host install a build
+# with accelerator support or the service will load and then serve from CPU.
+# Verify with:
+#     python -c "import llama_cpp; print(llama_cpp.llama_supports_gpu_offload())"
+#
+#   CUDA (needs the CUDA toolkit and a compiler):
+#     CMAKE_ARGS="-DGGML_CUDA=on" pip install --no-binary :all: llama-cpp-python
+#   Apple silicon:
+#     CMAKE_ARGS="-DGGML_METAL=on" pip install --no-binary :all: llama-cpp-python
+
+# The weights themselves are not a pip dependency - see models/README.md.
+
+
+# OPTIONAL - the fine-tuned checker (--checker). Deliberately not installed
+# by default: it is a second set of weights (~800 MB of base model cached
+# under HF_HOME, plus the 134 MB fine-tune in models/laya-checker/) and
+# the service runs unchanged without it. Install only if you intend to
+# pass --checker.
+#
+#     pip install laya==0.3.6 peft>=0.21    # both Apache-2.0

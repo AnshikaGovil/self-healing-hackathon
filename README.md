@@ -99,4 +99,6 @@ call. It asks a GPU in order - the judge on a Modal T4, which also starts
 per call, then a Lightning or Kaggle GPU when one is registered - and
 falls back to the ranker when none answers. A monthly ledger stops both
 before their free credit runs out. [deploy/README.md](deploy/README.md) has
-the details and the control script.
+the details and the control script, and [setup.md](setup.md) is the step by
+step guide to setting it all up on another machine - with new accounts or
+the current ones.
